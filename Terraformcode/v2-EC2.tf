@@ -4,15 +4,15 @@ provider "aws" {
 resource "aws_instance" "demo_server" {
   ami = "ami-081ec1aab6ca8f5ea"
   instance_type = "t3.micro"
-  key_name = "dpp"
-  security_groups = "demo-sg"
+  key_name = "ddp"
+  security_groups = ["demo_sg"]
 }
-resource "aws_security_group" "demo-sg" {
-  name        = "demo-sg"
+resource "aws_security_group" "demo_sg" {
+  name        = "demo_sg"
   description = "SSH Access"
   
   ingress {
-    description      = "Shh access"
+    description      = "Ssh access"
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
@@ -30,4 +30,5 @@ resource "aws_security_group" "demo-sg" {
   tags = {
     Name = "ssh-prot"
 
-  }}
+  }
+  }
